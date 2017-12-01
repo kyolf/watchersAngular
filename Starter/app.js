@@ -1,7 +1,13 @@
 var myApp = angular.module('myApp', []);
 
 myApp.controller('mainController', ['$scope', '$filter', '$timeout','$log', function($scope, $filter, $timeout, $log) {
-    
+  //Lessons to takeaway:
+  //Caveat of AngularJS : Stay in the AngularJS Architecture
+  
+  //You need to go all in or nothing in AngularJS framework
+  //because if you use things that are outside of AngularJS
+  //framework, you need to make sure you put $apply.
+  
   $scope.handle = '';
   
   $scope.lowercasehandle = function() {
@@ -52,5 +58,5 @@ myApp.controller('mainController', ['$scope', '$filter', '$timeout','$log', func
   $timeout(function(){
     $scope.handle = 'bye';
   }, 4000);
-  
+
 }]);
