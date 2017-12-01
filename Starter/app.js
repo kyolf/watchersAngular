@@ -32,6 +32,12 @@ myApp.controller('mainController', ['$scope', '$filter', '$timeout','$log', func
 
     //Solution 1: Use $apply function
     //Manual way to tell Angular context to start the digest loop
+    
+    //Implicitly Angular use $apply on the functions inside Angular context
+    
+    //If the function you are using is outside of Angular context such as 
+    //third party libraries (jQuery) or vanilla JS (setTimeout), then you need
+    //to explicitly state $apply function.
     $scope.$apply(function() {
       $scope.handle = 'hi';
       $log.log('Scope changed');
