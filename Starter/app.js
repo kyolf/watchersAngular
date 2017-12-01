@@ -45,5 +45,12 @@ myApp.controller('mainController', ['$scope', '$filter', '$timeout','$log', func
 
   }, 3000);
 
-    
+   
+  //Second solution
+  //Use Angular built-in services 
+  //$timeout replaces setTimeout
+  $timeout(function(){
+    $scope.handle = 'bye';
+  }, 4000);
+  
 }]);
