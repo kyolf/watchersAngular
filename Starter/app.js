@@ -29,8 +29,14 @@ myApp.controller('mainController', ['$scope', '$filter', '$timeout','$log', func
   //Doesn't change the scope even though it ran because it is outside AngularJs context.
   //Never started the digest loop
   setTimeout(function(){
-    $scope.handle = 'hi';
-    $log.log('Scope changed');
+
+    //Solution 1: Use $apply function
+    //Manual way to tell Angular context to start the digest loop
+    $scope.$apply(function() {
+      $scope.handle = 'hi';
+      $log.log('Scope changed');
+    });
+
   }, 3000);
 
     
